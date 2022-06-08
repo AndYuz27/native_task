@@ -1,7 +1,7 @@
 import React from "react";
 import Main  from "./main";
 import PageOfPet from './pageOfPet'
-
+import EditPg from './EditPg'
 import { createStackNavigator } from '@react-navigation/stack'
 import { NavigationContainer } from "@react-navigation/native";
 
@@ -22,7 +22,7 @@ export default function Navigate() {
                     component={PageOfPet}
                     options={{title: 'Главная'}}
                     />
-                
+                <Stack.Screen name='Edit' component={EditPg} options={{title: 'Измена'}}/>
             </Stack.Navigator>
         </NavigationContainer>
     )
