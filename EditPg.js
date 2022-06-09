@@ -7,6 +7,7 @@ import {
     TextInput,
     SafeAreaView,
 } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import { delCat, addCat, updCat } from "./api";
 
 export default function First({ navigation }) {
@@ -30,12 +31,11 @@ export default function First({ navigation }) {
                 alignItems: "center",
                 justifyContent: "center",
             }}
-        >
+        ><ScrollView>
             <Text
-                onPress={() => navigation.navigate("Home")}
                 style={{ fontSize: 20, fontWeight: "bold" }}
             >
-                Страница добавления, редактирования и удаления котиков
+                Добавить кота
             </Text>
             <SafeAreaView>
                 <TextInput
@@ -56,13 +56,13 @@ export default function First({ navigation }) {
                     onChangeText={onChangeDesc}
                     value={description}
                     placeholder="Введите описание"
-                    keyboardType="numeric"
+                    keyboardType="default"
                 />
                 <TextInput
                     style={styles.input}
                     onChangeText={onChangeId}
                     value={id}
-                    placeholder="Введите айди"
+                    placeholder="Введите ID"
                     keyboardType="numeric"
                 />
                 <TextInput
@@ -77,7 +77,7 @@ export default function First({ navigation }) {
                     onChangeText={onChangeImg}
                     value={img_link}
                     placeholder="Вставьте url-ссылку картинки"
-                    keyboardType="numeric"
+                    keyboardType="url"
                 />
                 <Button
                     title="Создать кота!!!"
@@ -85,11 +85,16 @@ export default function First({ navigation }) {
                 />
             </SafeAreaView>
             <SafeAreaView>
+            <Text
+                style={{ fontSize: 20, fontWeight: "bold" }}
+            >
+                Изменить кота
+            </Text>
                 <TextInput
                     style={styles.input}
                     onChangeText={onChangeUpdId}
                     value={updId}
-                    placeholder="Айди кота"
+                    placeholder="Текущий ID"
                     keyboardType="numeric"
                 />
                 <TextInput
@@ -104,7 +109,7 @@ export default function First({ navigation }) {
                     onChangeText={onChangeUpdDesc}
                     value={updDesc}
                     placeholder="Введите новое описание"
-                    keyboardType="numeric"
+                    keyboardType="default"
                 />
                 <TextInput
                     style={styles.input}
@@ -118,7 +123,7 @@ export default function First({ navigation }) {
                     onChangeText={onChangeUpImg}
                     value={UpImg_link}
                     placeholder="Вставьте url-ссылку картинки"
-                    keyboardType="numeric"
+                    keyboardType="url"
                 />
                 <Button
                     title="Изменить кота!!!"
@@ -128,24 +133,31 @@ export default function First({ navigation }) {
                 />
             </SafeAreaView>
             <SafeAreaView>
+            <Text
+                style={{ fontSize: 20, fontWeight: "bold" }}
+            >
+                Удалить кота
+            </Text>
                 <TextInput
                     style={styles.input}
                     onChangeText={onChangeDelId}
                     value={delId}
-                    placeholder="Айди кота для удаления"
+                    placeholder="ID для удаления"
                     keyboardType="numeric"
                 />
                 <Button title="Удалить кота!!!" onPress={() => delCat(delId)} />
             </SafeAreaView>
+            </ScrollView>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     input: {
-        height: 40,
+        height: 55,
         margin: 12,
-        borderWidth: 1,
+        borderWidth: 0.5,
+        borderRadius: 8,
         padding: 10,
     },
 });

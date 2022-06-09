@@ -7,7 +7,7 @@ export default function Card(props) {
 
 
             <View style={styles.cardContent}>
-            <Image source = {{uri: props.cat.img_link}} style = {{ width: '125pt', height: '125pt' }}/>
+            <Image source = {{uri: props.cat.img_link}} style = {styles.tinyLogo}/>
                 <Text>Имя: {props.cat.name}</Text>
                 <Text>Возраст: {props.cat.age}</Text>
                 <Text>Описание: {props.cat.description}</Text>
@@ -37,4 +37,17 @@ const styles = StyleSheet.create({
         marginHorizontal: 18,
         marginVertical: 20,
     },
+
+    container: {
+        paddingTop: 50,
+      },
+      tinyLogo: {
+        width: 250,
+        height: 250,
+      },
+      logo: {
+        width: 66,
+        height: 58,
+      },
+
 });
